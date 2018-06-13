@@ -1,0 +1,1 @@
+±ãĞ¯°æÇë´ò¿ª .\VSCode-win32-ia32-1.21.1-portable(C++)\Code.portable.bat
