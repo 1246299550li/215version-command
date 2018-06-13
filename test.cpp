@@ -53,6 +53,7 @@ int main()
                 r = mid;
         }
         printf("%lld\n", l);
+        printf("%lld\n", l);
     }
     return 0;
 }
