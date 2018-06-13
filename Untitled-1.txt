@@ -1,0 +1,5 @@
+
+git config –global user.name “1246299550li” 
+git config –global user.email “1246299550@qq.com” 
+git remote add origin https://github.com/1246299550li/215version-command
+git pull origin master
