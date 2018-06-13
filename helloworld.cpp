@@ -2,7 +2,7 @@
 
 int main(void){
     printf("hello, world\n");
-    printf("This is a breakpoint test.");
+    printf("岚冰雁是大笨蛋");
     getchar();
     return 0;
 }
