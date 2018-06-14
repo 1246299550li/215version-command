@@ -10,7 +10,6 @@
 #include <algorithm>
 #include <stack>
 #include <cstring>
-#include <cmath>
 #include <iterator>
 #include <iomanip>
 #include <fstream>
@@ -25,9 +24,14 @@ int main()
 {
     // freopen("input.in", "r", stdin);
     int n;
+    long long temp;
     while (~scanf("%d", &n))
     {
-        
+        for (int i = 1; i <= n; i++)
+        {
+            scanf("%lld", temp);
+            
+        }
     }
     return 0;
 }
