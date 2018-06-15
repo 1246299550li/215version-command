@@ -17,12 +17,13 @@ const int maxn = 100005;
 using namespace std;
 int dp[205][205][2];
 int a[205][205];
-int give[205][205];
+int frees[205][205];
 int pre_sum[205][205];
-int sta[205];
+int start[205];
 int n, m, money;
 int main()
 {
+    // freopen("input.in", "r", stdin);
     while (~scanf("%d%d%d", &n, &m, &money))
     {
         if (!n && !m && !money)
@@ -37,7 +38,7 @@ int main()
             for (int j = 1; j <= m; j++)
             {
                 scanf("%d", &a[i][j]);
-                give[i][j] = 0;
+                frees[i][j] = 0;
             }
         int t;
         scanf("%d", &t);
@@ -45,23 +46,21 @@ int main()
         {
             int x, y;
             scanf("%d%d", &x, &y);
-            give[x][y] = 1;
+            frees[x][y] = 1;
         }
-        memset(sta, 0, sizeof(sta));
+        memset(start, 0, sizeof(start));
         memset(pre_sum, 0, sizeof(pre_sum));
         int ans = 0;
         for (int i = 1; i <= n; i++)
         {
-            sta[i] = 1;
-            while (sta[i] <= m && give[i][sta[i]])
+            start[i] = 1;
+            while (start[i] <= m && frees[i][start[i]])
             {
-                ans += a[i][sta[i]];
-                sta[i]++;
+                ans += a[i][start[i]];
+                start[i]++;
             }
             for (int j = m; j >= 1; j--)
-            {
-                pre_sum[i][j] = give[i][j] ? (pre_sum[i][j + 1] + a[i][j]) : 0;
-            }
+                pre_sum[i][j] = frees[i][j] ? (pre_sum[i][j + 1] + a[i][j]) : 0;
         }
         for (int i = 1; i <= n; i++)
         {
@@ -72,10 +71,10 @@ int main()
 
                 int cnt = 0;
                 int va = 0;
-                for (int k = sta[i]; k <= m; k++)
+                for (int k = start[i]; k <= m; k++)
                 {
                     va += a[i][k];
-                    if (!give[i][k])
+                    if (!frees[i][k])
                     {
                         cnt++;
                         if (cnt > j)

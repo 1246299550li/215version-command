@@ -19,6 +19,7 @@
         "algorithm": "cpp",
         "set": "cpp",
         "queue": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "vector": "cpp"
     }
 }
