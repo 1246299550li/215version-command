@@ -10,11 +10,7 @@
 #include <algorithm>
 #include <stack>
 #include <cstring>
-#include <cmath>
 #include <iterator>
-#include <iomanip>
-#include <fstream>
-#include <climits>
 const long long llf = 0x3f3f3f3f3f3f3f3f;
 const int inf = 0x3f3f3f3f;
 const int maxn = 10005;

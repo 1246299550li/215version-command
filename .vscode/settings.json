@@ -15,6 +15,10 @@
         "sstream": "cpp",
         "initializer_list": "cpp",
         "valarray": "cpp",
-        "cstring": "cpp"
+        "cstring": "cpp",
+        "algorithm": "cpp",
+        "set": "cpp",
+        "queue": "cpp",
+        "map": "cpp"
     }
 }
