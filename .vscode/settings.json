@@ -20,6 +20,8 @@
         "set": "cpp",
         "queue": "cpp",
         "map": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "stack": "cpp",
+        "cstdio": "cpp"
     }
 }
