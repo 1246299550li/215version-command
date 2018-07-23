@@ -13,47 +13,41 @@
 #include <set>
 const long long llf = 0x3f3f3f3f3f3f3f3f;
 const int inf = 0x3f3f3f3f;
-const int maxn = 100005;
+const int maxn = 10005;
 using namespace std;
+int data[maxn];
 int main()
 {
-    // freopen("input.in", "r", stdin);
-    // freopen("input.out", "w", stdout);
-	int t, road[maxn];
-	scanf("%d", &t);
-	while (t--)
+	// freopen("input.in", "r", stdin);
+	// freopen("input.out", "w", stdout);
+	int n, q;
+	while (cin >> n >> q)
 	{
-		int m, n;
-		scanf("%d%d", &m, &n);
-		int low = 0, high = 0; 
-		for (int i = 1; i <= m; i++)
+		if (0 == n)
+			break;
+		int tmp;
+		for (int i = 0; i < n; i++)
 		{
-			scanf("%d", &road[i]);
-			high += road[i];
-			if (road[i] > low)
-				low = road[i];
+			cin >> tmp;
+			data[tmp]++;
 		}
-		while (low < high)    //二分，下界是最长路段，上界是路的总长
+		int ans = 0;
+		for (int i = 0; i < q; i++)
 		{
-			int mid = (low + high) / 2;
-			int count = 1;    //需要的施工队
-			int tmp = road[1];
-			for (int i = 2; i <= m; i++)
+			cout << "CASE# " << i + 1 << ":" << endl;
+			cin >> tmp;
+			for (int i = 0; i < tmp; i++)
 			{
-				if (tmp + road[i] > mid)
-				{
-					count++;
-					tmp = road[i];
-				}
-				else
-					tmp += road[i];
+				ans += data[i];
 			}
-			if (count > n)
-				low = mid + 1;
+			ans++;
+			if (data[tmp])
+				cout << tmp << "not found" << endl;
 			else
-				high = mid;
+			{
+				cout << q << " found at " << ans << endl;
+			}
 		}
-		printf("%d\n", low);
 	}
-    return 0;
+	return 0;
 }
