@@ -24,19 +24,22 @@ int main()
 	//	freopen ("input.in", "r", stdin);
 	freopen("input.in", "w", stdout);
 	srand(time(0));
-	int t = 10,
+	int t = 15,
 		n = 100000,
 		m = 3;
 
 	//    printf("%d %d\n", n, m);
 	while (t--)
 	{
-		cout << n << endl;
-		for (int i = 1; i <= n; i++)
-			if (t & 1)
-				cout << rand() * 9 << " ";
+		int r = rand() % 100;
+		for (int i = 1; i <= r; i++)
+		{
+			int s = rand();
+			if (s % 3)
+				cout << "W";
 			else
-				cout << i << " ";
+				cout << "L";
+		}
 		cout << endl;
 	}
 

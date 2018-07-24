@@ -42,6 +42,7 @@
         "new": "cpp",
         "numeric": "cpp",
         "stdexcept": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "string": "cpp"
     }
 }
