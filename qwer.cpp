@@ -42,21 +42,9 @@ bool isReach(int t)
                 if (people[x][y] + !len <= fire[tmpx][tmpy])
                 {
                     if (tmpx == get<0>(ans) && tmpy == get<1>(ans))
-                    {
-                        // for (int i = 1; i <= n; i++)
-                        // {
-                        //     for (int j = 1; j <= n; j++)
-                        //         if (people[i][j] == inf)
-                        //             cout << "*   ";
-                        //         else
-                        //             cout << people[i][j] << "   ";
-                        //     cout << endl;
-                        // }
-                        // cout << endl;
                         return true;
-                    }
                     people[tmpx][tmpy] = people[x][y] + !len;
-                    if (len >= s -1)
+                    if (len >= s - 1)
                     {
                         if (people[x][y] + !len < fire[tmpx][tmpy])
                             people_q.emplace(tmpx, tmpy, 0);
@@ -66,16 +54,6 @@ bool isReach(int t)
                 }
         }
     }
-    // for (int i = 1; i <= n; i++)
-    // {
-    //     for (int j = 1; j <= n; j++)
-    //         if (people[i][j] == inf)
-    //             cout << "#   ";
-    //         else
-    //             cout << people[i][j] << "   ";
-    //     cout << endl;
-    // }
-    // cout << endl;
     return false;
 }
 
@@ -116,13 +94,6 @@ int main()
             }
         }
     }
-    // for (int i = 1; i <= n; i++)
-    // {
-    //     for (int j = 1; j <= n; j++)
-    //         cout << fire[i][j] << "   ";
-    //     cout << endl;
-    // // }
-    // cout << endl;
 
     if (!isReach(0))
     {
