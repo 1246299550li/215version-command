@@ -24,25 +24,17 @@ int main()
 	//	freopen ("input.in", "r", stdin);
 	freopen("input.in", "w", stdout);
 	srand(time(0));
-	int t = 15,
-		n = 100000,
-		m = 3;
-
-	//    printf("%d %d\n", n, m);
+	int n = 100,
+		m = 100,
+		t = 20,
+		e = 3;
 	while (t--)
 	{
-		int r = rand() % 100;
-		for (int i = 1; i <= r; i++)
-		{
-			int s = rand();
-			if (s % 3)
-				cout << "W";
-			else
-				cout << "L";
-		}
-		cout << endl;
-	}
+	printf("%d %d\n", rand() % 100001, rand() % 100001);
 
+	
+	}
+	// cout << "0";
 	// cout << 0;
 	// for (int i = 1; i <= t; i++)
 	// {
