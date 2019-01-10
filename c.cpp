@@ -1,39 +1,57 @@
-#include <iostream>
-#include <cstring>
 #include <cstdio>
-#include <string>
-#include <cstdlib>
+#include <cstring>
 #include <algorithm>
-#include <iterator>
-#include <vector>
-#include <cmath>
-#include <queue>
-#include <stack>
-#include <map>
-#include <set>
-const long long llf = 0x3f3f3f3f3f3f3f3f;
-const int inf = 0x3f3f3f3f;
-const int maxn = 105;
 using namespace std;
-int dp[maxn][maxn];
+int nextt[10010], T[10010];
+int S[1000100];
+int n, m, ans;
+void get_next()
+{
+    int i = 1, j = 0;
+    nextt[1] = 0; 
+    while (i < m)
+    {
+        if (j == 0 || T[i] == T[j]) 
+        {
+            ++i;
+            ++j;
+            nextt[i] = j;
+        }
+        else
+            j = nextt[j]; 
+    }
+}
+void kmp()
+{
+    int i = 1, j = 1;
+    while (i <= n && j <= m)
+    {
+        if (j == 0 || S[i] == T[j])
+        {
+            ++i, ++j;
+        }
+        else
+            j = nextt[j];
+    }
+    if (j > m)
+        printf("%d\n", i - m);
+    else
+        printf("-1\n");
+}
 int main()
 {
-	// freopen("input.in", "r", stdin);
-	// freopen("input.out", "w", stdout);
-	int n, data[maxn];
-	while (~scanf("%d", &n))
-	{
-		for (int i = 1; i <= n; i++)
-			scanf("%d", &data[i]);
-		for (int len = 2; len < n; len++)
-			for (int start = 2; start + len - 1 <= n; start++)
-			{
-				int end = start + len - 1;
-				dp[start][end] = inf;
-				for (int k = start; k < end; k++)
-					dp[start][end] = min(dp[start][end], dp[start][k] + dp[k + 1][end] + data[start - 1] * data[k] * data[end]);
-			}
-		printf("%d\n", dp[2][n]);
-	}
-	return 0;
+    int t;
+    scanf("%d", &t);
+    while (t--)
+    {
+        scanf("%d%d", &n, &m);
+        int i, j;
+        for (i = 1; i <= n; i++)
+            scanf("%d", &S[i]);
+        for (i = 1; i <= m; i++)
+            scanf("%d", &T[i]);
+        S[0] = T[0] = -1;
+        get_next();
+        kmp();
+    }
 }

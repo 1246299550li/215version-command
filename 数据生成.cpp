@@ -30,7 +30,7 @@ int main()
 		e = 3;
 	while (t--)
 	{
-	printf("%d %d\n", rand() % 100001, rand() % 100001);
+	printf("%d %d ", rand() % 4, rand() % 4);
 
 	
 	}
