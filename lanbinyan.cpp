@@ -5,17 +5,17 @@
 #define MAX_CITY 10
 using namespace std;
 
-//����վ����
+//?????????
 class Station{
 public:
-    string station_name;        //վ��
+    string station_name;        //???
     int arrive_time_hour;
     int arrive_time_minute;
-    int residence_time;         //ͣ��ʱ��
-    int price;                  //ʼ��վ����վ�ļ۸�
+    int residence_time;         //??????
+    int price;                  //?????????????
     Station* next;
 	Station(){
-		cout<<"�������"<<endl;
+		cout<<"???????"<<endl;
 	}
     Station(string sn,int ath,int atm,int rt,int p){
         station_name = sn;
@@ -26,19 +26,19 @@ public:
     }
 };
 
-//���峵����Ϣ���
+//???�t????????
 class Train{
 public:
-    string train_number;        //����
-    string departure_station;   //ʼ��վ��
+    string train_number;        //????
+    string departure_station;   //??????
     int departure_time_hour;
     int departure_time_minute;
-    int rated_ticket_num;       //�Ʊ��
+    int rated_ticket_num;       //?????
     Station* next;
 
-    //���캯��
+    //??????
     Train(){
-    	cout<<"����˭��"<<endl;
+    	cout<<"???????"<<endl;
     }
     Train(string tn,string ds,int dth,int dtm,int rtn,Station* s){
         string train_number = tn;        
@@ -49,7 +49,7 @@ public:
         next = s;
     }
 
-    //����վ��
+    //???????
     void add_station(string sn,int ath,int atm,int rt,int p){
         Station s(sn,ath,atm,rt,p);
         s.next = NULL;
@@ -65,22 +65,22 @@ typedef struct train_node{
 	train_node * next;
 }train_node,*train_info;
 
-typedef struct{//������Ϣ�ڵ�
+typedef struct{//??????????
 	string city_name;
 	int total_train;
 	train_info nextinfo;	
 }City_linklist;
 
-class City_Train_info{//������һվ��ͼ 
+class City_Train_info{//??????????? 
 	public:
 		City_linklist *Index_list;
 		
-		City_Train_info(Train *e){//�Գ�����Ϣ����б�������ȡ��ĳһ�����йص� 
+		City_Train_info(Train *e){//????????????��?????????????????��?? 
 			Index_list = new City_linklist[MAX_CITY];
 			for(int i=0;i<MAX_CITY;i++)
 				Index_list[i].total_train=0;
 			for(int i=0;i<MAX_TRAIN;i++){
-				int count = 0;//����ָʾ��ǰӦ����λ�� 
+				int count = 0;//??????????????��?? 
 				Station *ss = e[i].next; 
 				string name = ss->station_name;
 				int a = already_exist(name);
@@ -103,7 +103,7 @@ class City_Train_info{//������һվ��ͼ
 			}
 		}
 		
-		//�жϱ����Ƿ��Ѿ�������aΪͷ������ 
+		//?��????????????????a???????? 
 		int already_exist(string a){
 			for(int i = 0;i < MAX_CITY;i++){
 				if(Index_list[i].city_name==a)
@@ -119,18 +119,13 @@ class City_Train_info{//������һվ��ͼ
 				while(a!=NULL){
 					cout<<a->train_number;
 					a=a->next;
-					if(a!=NULL) cout<<"��"; 
+					if(a!=NULL) cout<<"??"; 
 				}
 			}
 		}
 };
 
-class Ordered
 int main(void){
-	Train *e =new Train[MAX_TRAIN];
-	for(int i=0;i<MAX_TRAIN;i++){
-		e.Train("G123","�Ͼ�",8,20,1000,new Station);
-	}
-	City_Train_info index = City_Train_info(e);
+	cout<<"nihao"<<endl;
 	return 0;
 }
