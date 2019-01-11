@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-#define MAX_TRAIN 3nihao
+#define MAX_TRAIN 3
 #define MAX_CITY 10
 using namespace std;
 
@@ -15,7 +15,7 @@ public:
     int price;                  //ʼ��վ����վ�ļ۸�
     Station* next;
 	Station(){
-		cout<<"�������"<<endl;
+		cout<<"�������?"<<endl;
 	}
     Station(string sn,int ath,int atm,int rt,int p){
         station_name = sn;
@@ -26,7 +26,7 @@ public:
     }
 };
 
-//���峵����Ϣ���
+//���峵����Ϣ���?
 class Train{
 public:
     string train_number;        //����
@@ -75,7 +75,7 @@ class City_Train_info{//������һվ��ͼ
 	public:
 		City_linklist *Index_list;
 		
-		City_Train_info(Train *e){//�Գ�����Ϣ����б�������ȡ��ĳһ�����йص� 
+		City_Train_info(Train *e){//�Գ�����Ϣ����б�������ȡ��ĳһ�����йص�? 
 			Index_list = new City_linklist[MAX_CITY];
 			for(int i=0;i<MAX_CITY;i++)
 				Index_list[i].total_train=0;
@@ -125,12 +125,7 @@ class City_Train_info{//������һվ��ͼ
 		}
 };
 
-class Ordered
 int main(void){
-	Train *e =new Train[MAX_TRAIN];
-	for(int i=0;i<MAX_TRAIN;i++){
-		e.Train("G123","�Ͼ�",8,20,1000,new Station);
-	}
-	City_Train_info index = City_Train_info(e);
-	return 0;
+	cout<<"zhihzang"<<endl;
+	 return 0;
 }
