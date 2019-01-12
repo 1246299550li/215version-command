@@ -115,13 +115,14 @@ class City_Train_info{//城市互通图类，采用类似邻接表方式存储
 				while(a!=NULL){
 					cout<<a->train_number;
 					a=a->next;
-					if(a!=NULL) cout<<"锟斤拷"; 
+					if(a!=NULL) cout<<""; 
 				}
 			}
 		}
 };
 
 int main(void){
-	cout<<"zhihzang"<<endl;
+	cout<<"是个狠人"<<endl;
+	system("pause");
 	 return 0;
 }
