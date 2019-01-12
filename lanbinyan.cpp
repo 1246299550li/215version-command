@@ -5,18 +5,16 @@
 #define MAX_CITY 10
 using namespace std;
 
-//ï¿½ï¿½ï¿½ï¿½Õ¾ï¿½ï¿½ï¿½ï¿½
+//ÁÐ³µÕ¾µãÀà
 class Station{
 public:
-    string station_name;        //Õ¾ï¿½ï¿½
+    string station_name;        //Õ¾³ÇÊÐÃû
     int arrive_time_hour;
     int arrive_time_minute;
-    int residence_time;         //Í£ï¿½ï¿½Ê±ï¿½ï¿½
-    int price;                  //Ê¼ï¿½ï¿½Õ¾ï¿½ï¿½ï¿½ï¿½Õ¾ï¿½Ä¼Û¸ï¿½
-    Station* next;
-	Station(){
-		cout<<"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?"<<endl;
-	}
+    int residence_time;         //Í£ÁôÊ±¼ä
+    int price;                  //´ÓÆðµãµ½ÕâÀïµÄ¼Û¸ñ
+	Station* next;
+	
     Station(string sn,int ath,int atm,int rt,int p){
         station_name = sn;
         arrive_time_hour = ath;
@@ -26,20 +24,17 @@ public:
     }
 };
 
-//ï¿½ï¿½ï¿½å³µï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿?
+//ÁÐ³µÀà
 class Train{
 public:
-    string train_number;        //ï¿½ï¿½ï¿½ï¿½
-    string departure_station;   //Ê¼ï¿½ï¿½Õ¾ï¿½ï¿½
+    string train_number;        //ÁÐ³µ±àºÅ
+    string departure_station;   //·¢³µÊ±¼ä
     int departure_time_hour;
     int departure_time_minute;
-    int rated_ticket_num;       //ï¿½î¶¨Æ±ï¿½ï¿½
+    int rated_ticket_num;       //¶î¶¨Æ±Êý
     Station* next;
 
-    //ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½
-    Train(){
-    	cout<<"ï¿½ï¿½ï¿½ï¿½Ë­ï¿½ï¿½"<<endl;
-    }
+    //¹¹Ôìº¯Êý
     Train(string tn,string ds,int dth,int dtm,int rtn,Station* s){
         string train_number = tn;        
         departure_station = ds;   
@@ -49,7 +44,7 @@ public:
         next = s;
     }
 
-    //ï¿½ï¿½ï¿½ï¿½Õ¾ï¿½ï¿½
+    //Ìí¼ÓÕ¾µãÐÅÏ¢
     void add_station(string sn,int ath,int atm,int rt,int p){
         Station s(sn,ath,atm,rt,p);
         s.next = NULL;
@@ -63,24 +58,25 @@ public:
 typedef struct train_node{
 	int train_number;
 	train_node * next;
+	string next_stop;//¼ÇÂ¼¸Ã³ÇÊÐÔÚ´ÎÁÐ³µÉÏµÄÏÂÒ»Õ¾
 }train_node,*train_info;
 
-typedef struct{//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½Úµï¿½
+typedef struct{//³ÇÊÐ»¥Í¨Í¼Í·½áµã
 	string city_name;
 	int total_train;
 	train_info nextinfo;	
 }City_linklist;
 
-class City_Train_info{//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»Õ¾ï¿½ï¿½Í¼ 
+class City_Train_info{//³ÇÊÐ»¥Í¨Í¼Àà£¬²ÉÓÃÀàËÆÁÚ½Ó±í·½Ê½´æ´¢ 
 	public:
 		City_linklist *Index_list;
 		
-		City_Train_info(Train *e){//ï¿½Ô³ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½Ä³Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ð¹Øµï¿? 
+		City_Train_info(Train *e){//±éÀúÁÐ³µÊ±¿Ì±í»ñµÃ³ÇÊÐ±í 
 			Index_list = new City_linklist[MAX_CITY];
 			for(int i=0;i<MAX_CITY;i++)
 				Index_list[i].total_train=0;
 			for(int i=0;i<MAX_TRAIN;i++){
-				int count = 0;//ï¿½ï¿½ï¿½ï¿½Ö¸Ê¾ï¿½ï¿½Ç°Ó¦ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ 
+				int count = 0;
 				Station *ss = e[i].next; 
 				string name = ss->station_name;
 				int a = already_exist(name);
@@ -103,7 +99,7 @@ class City_Train_info{//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»Õ¾ï¿½ï¿½Í¼
 			}
 		}
 		
-		//ï¿½Ð¶Ï±ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½aÎªÍ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+		//ÅÐ¶ÏÍ¼ÖÐÊÇ·ñÒÑ¾­´æÔÚ¸Ã³ÇÊÐ 
 		int already_exist(string a){
 			for(int i = 0;i < MAX_CITY;i++){
 				if(Index_list[i].city_name==a)
